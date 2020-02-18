@@ -6,7 +6,7 @@
 
 # Docker
 
-- Is a virtual machine that is capable of assigning software and harware resources of a physical machine to multiple instances of container 🤣. It's allow's for fast development and deployment of application in any os platform
+- Is a virtual machine that is capable of assigning software and harware resources of a physical machine to multiple instances of container 💪. It's allow's for fast development and deployment of application in any os platform
 
 ### Why docker?
 
@@ -136,3 +136,18 @@ $ docker build -t <docker-id>/<image-name>:<version-name> .
 ```
 
 # Creating new image from existing container
+
+```docker
+$ docker run -it <container-id> sh
+```
+
+```bash
+ # add your new packages e.g
+ $ apk add --update redis
+```
+
+- In a new terminal run
+
+```bash
+$ docker commit -c 'CMD ["Set-default-package"]' <container-id>
+```
