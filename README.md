@@ -94,7 +94,7 @@ $ docker system prune
 
 ### Run a command when starting a container
 
-- Note: -it => equals -i -t -i stands for interactive mode -t for pretty formating
+- Note: -it => equals -i -t -i stands for STDIN -t for pretty formating output
 
 ```docker
 $ docker exec -it <container-id> <command-to-run>
@@ -150,4 +150,37 @@ $ docker run -it <container-id> sh
 
 ```bash
 $ docker commit -c 'CMD ["Set-default-package"]' <container-id>
+```
+
+## Creating basic node server image and container
+
+- Create `Dockerfile`
+
+- Dockerfile content
+
+```bash
+# Specifiy base image
+FROM node:alpine
+
+# specify working directory
+WORKDIR /usr/app
+
+# this helps if no changes in package.json file(by using cache)
+COPY ./package.json ./
+
+# Install dependencies
+RUN npm install
+
+# copy files & folders from current build context to above specified wokdirectory directory
+COPY ./ ./
+
+# Default container command
+CMD ["npm", "start"]
+```
+
+**By default container can interact with the internet e.g `npm install` command but
+for local machine to connect or forward request to the container we have to expose a port from our local machine and map it with the container port e.g docker `run -p <anyport-number>:<current-node-server-port-number> <image-name>`**
+
+```bash
+$ docker run -p 2030:3000 <image-name>
 ```
