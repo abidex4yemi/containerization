@@ -185,7 +185,7 @@ for local machine to connect or forward request to the container we have to expo
 $ docker run -p 2030:3000 <image-name>
 ```
 
-## using `docker-compose.yml` to run multiple create and container
+## using `docker-compose.yml` to create and run multiple container
 
 - docker-compose.yml file configuration
 - Put in all required configurartion
@@ -200,4 +200,22 @@ $ docker-compose up
 
 ```bash
 $ docker-compose up --build
+```
+
+## Lunch container underground
+
+```bash
+$ docker-container up -d
+```
+
+## Stop all container
+
+```bash
+$ docker-compose down
+```
+
+## list all container specific to a docker-compose.yml file
+
+```bash
+$ docker-compose ps
 ```
