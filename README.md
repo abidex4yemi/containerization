@@ -219,3 +219,17 @@ $ docker-compose down
 ```bash
 $ docker-compose ps
 ```
+
+## Using custom Dockerfile for image configuration
+
+```bash
+$ docker build -f Dockerfile.dev .
+```
+
+## Running docker with volume command using docker cli
+
+```bash
+$ docker run -p <local-port>:<container-port> -v <place-holder-dir> -v $(pwd):<work-dir> <image-id>
+```
+
+# Building multi step build process

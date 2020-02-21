@@ -3,9 +3,17 @@ services:
   react-app-web:
     build:
       context: ./
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.dev #using custom dockerfile config
     ports:
-      - '3000:3000'
+      - '3000:3000' # map local port to container port
     volumes:
       - /app/node_modules
       - ./:/app
+  test:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules # watches for any file change
+      - ./:/app
+    command: ['npm', 'test'] # override default container start script
