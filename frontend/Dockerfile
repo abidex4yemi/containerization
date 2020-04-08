@@ -12,4 +12,7 @@ RUN npm run build
 
 FROM nginx
 
+# Note: this is needed for cloud hosting to automatically map port
+EXPOSE 80
+
 COPY --from=builder /app/build /usr/share/nginx/html
