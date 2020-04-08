@@ -6,13 +6,13 @@
 
 # Docker
 
-- Is a virtual machine that is capable of assigning software and harware resources of a physical machine to multiple instances of container 💪. It's allow's for fast development and deployment of application in any os platform
+- Is a virtual machine that is capable of assigning software and hardware resources of a physical machine to multiple instances of container 💪. It's allows for fast development and deployment of application in any os platform
 
 ### Why docker?
 
 ### What is an image?
 
-- An image is a snapshot of a `fs` file system with default packages and command
+- An image is a snapshot of a `file system` with default packages and command
 
 ### What is a container
 
